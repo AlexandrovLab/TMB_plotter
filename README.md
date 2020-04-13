@@ -22,8 +22,8 @@ Column 2 is the number of mutations in that sample.
 2. **scale**:  *The number of base pairs sequenced in each sample.*
 ```
 The options are: 
-"exome"
-"genome"
+"exome", which assumes sequencing size of 55 Mb
+"genome", which assumes sequencing size of 2800 Mb
 An integer indicating the scale of the sequencing
 ```
 3. **Yrange**:  *The range of Yaxis.*
@@ -37,6 +37,18 @@ A list of two numbers of powers of 10 indicating the Y-axis range. Example: [0.1
 Example
 ```
 inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
+plotTMB(inputDF,"genome", "adapt")
+```
+![Alt text](plots/E1_adapt.png?raw=true "Example 1:Y axis adapts to input data")
+
+```
+inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
 plotTMB(inputDF,"genome", "cancer")
 ```
-![Alt text](plots/E2_cancer.png?raw=true "Title")
+![Alt text](plots/E1_cancer.png?raw=true "Example 2:Y axis set for standard cancer TMB")
+
+```
+inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
+plotTMB(inputDF,2800, [0.1,10])
+```
+![Alt text](plots/E1_list.png?raw=true "Exmaple 3: custome input value for sequencing scale and Y axis range")
