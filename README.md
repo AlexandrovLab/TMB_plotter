@@ -9,6 +9,7 @@
 Example:
 
 | Bladder-TCC | 15354 |
+|-------------|-------|
 | Bladder-TCC | 25212 |
 | Bladder-TCC | 31114 |
 | Bladder-TCC | 36432 |
