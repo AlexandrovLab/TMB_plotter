@@ -2,10 +2,10 @@
 
 # Inputs
 
-1. **inputDF**: *A panda dataframe containing two columns and however many rows of samples.* 
+1. **inputDF**:  *A panda dataframe containing two columns and however many rows of samples.* 
 ```
-            Column 1 is the category the sample belongs to. 
-            Column 2 is the number of mutations in that sample.
+Column 1 is the category the sample belongs to. 
+Column 2 is the number of mutations in that sample.
 ```            
 **Example:**
 
@@ -16,20 +16,20 @@
 | Bladder-TCC | 36432 |
     
 
-2. **scale**: *The number of base pairs sequenced in each sample.*
+2. **scale**:  *The number of base pairs sequenced in each sample.*
 ```
-           The options are: 
-           "exome"
-           "genome"
-           An integer indicating the scale of the sequencing
+The options are: 
+"exome"
+"genome"
+An integer indicating the scale of the sequencing
 ```
-3. **Yrange**: *The range of Yaxis. *
+3. **Yrange**:  *The range of Yaxis.*
 ```
-            The options are:
-            "adapt", which will make the plot automatically adapt to the given datase
-            "cancer", which will set the range to 0.001 to 1000
-            A list of two numbers of powers of 10 indicating the Y-axis range
-            Example: [0.1,100]
+The options are:
+"adapt", which will make the plot automatically adapt to the given datase
+"cancer", which will set the range to 0.001 to 1000
+A list of two numbers of powers of 10 indicating the Y-axis range
+Example: [0.1,100]
 ```
             
             
