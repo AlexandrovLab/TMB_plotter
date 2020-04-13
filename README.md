@@ -8,7 +8,7 @@
             
 Example:
 
-| Bladder-TCC | 15354 |
+| Column1 | Column2 |
 |-------------|-------|
 | Bladder-TCC | 25212 |
 | Bladder-TCC | 31114 |
