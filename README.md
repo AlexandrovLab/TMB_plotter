@@ -8,10 +8,10 @@
             
 Example:
 
-
-    | Column_1 | Column_2 
-    | Bladder-TCC | 15354          
-    | Bladder-TCC | 15354
+| Bladder-TCC | 15354 |
+| Bladder-TCC | 25212 |
+| Bladder-TCC | 31114 |
+| Bladder-TCC | 36432 |
     
 
 2. scale: "exome" or "genome" or an integer indicating the scale of the sequencing
