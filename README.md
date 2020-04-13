@@ -39,4 +39,4 @@ Example
 inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
 plotTMB(inputDF,"genome", "cancer")
 ```
-![Alt text](plots/E2_cancer.pdf?raw=true "Title")
+![Alt text](plots/E2_cancer.png?raw=true "Title")
