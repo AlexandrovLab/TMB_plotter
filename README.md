@@ -1,6 +1,9 @@
-## TMB_plotting_function
+# TMB_plotting_function
 
-# Inputs
+```
+plotTMB(inputDF, scale, Yrange)
+```
+## Inputs
 
 1. **inputDF**:  *A panda dataframe containing two columns and however many rows of samples.* 
 ```
