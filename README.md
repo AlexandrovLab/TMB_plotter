@@ -1,8 +1,8 @@
-# TMB_plotting_function
+## TMB_plotting_function
 
 **Inputs**
 
-1. inputDF: A panda dataframe containing two columns and however many rows of samples. 
+# 1. inputDF: A panda dataframe containing two columns and however many rows of samples. 
             Column 1 is the category the sample belongs to. 
             Column 2 is the number of mutations in that sample.
             
@@ -15,5 +15,15 @@ Example:
 | Bladder-TCC | 36432 |
     
 
-2. scale: "exome" or "genome" or an integer indicating the scale of the sequencing
-3. Yrange: The range of Yaxis. The options are either "adapt", which will make the plot automatically adapt to the given dataset, or "cancer", which will set the range to 0.001 to 1000, or a list of two numbers of powers of 10 indicating the Y-axis range.
+# 2. scale: The number of base pairs sequenced in each sample.
+           The options are: 
+           "exome"
+           "genome"
+           An integer indicating the scale of the sequencing
+# 3. Yrange: The range of Yaxis. 
+            The options are:
+            "adapt", which will make the plot automatically adapt to the given datase
+            "cancer", which will set the range to 0.001 to 1000
+            A list of two numbers of powers of 10 indicating the Y-axis range,such as [0.1,100]
+            
+            
