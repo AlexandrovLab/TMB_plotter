@@ -31,8 +31,12 @@ An integer indicating the scale of the sequencing
 The options are:
 "adapt", which will make the plot automatically adapt to the given datase
 "cancer", which will set the range to 0.001 to 1000
-A list of two numbers of powers of 10 indicating the Y-axis range
-Example: [0.1,100]
+A list of two numbers of powers of 10 indicating the Y-axis range. Example: [0.1,100]
 ```
-            
-            
+
+Example
+```
+inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
+plotTMB(inputDF,"genome", "cancer")
+```
+![Alt text](plots/E2_cancer.pdf?raw=true "Title")
