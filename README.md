@@ -58,4 +58,4 @@ plotTMB(inputDF,2800, [0.1,10])
 inputDF = pd.read_table('exmapleInput1_pcawg.txt')
 plotTMB(inputDF,"genome","adapt")
 ```
-![Alt text](plots/E1_list.png?raw=true "Exmaple 4: full PCAWG dataset")
+![Alt text](plots/E2_adapt.png?raw=true "Exmaple 4: full PCAWG dataset")
