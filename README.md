@@ -34,19 +34,24 @@ The options are:
 A list of two numbers of powers of 10 indicating the Y-axis range. Example: [0.1,100]
 ```
 
-Example
+## Examples
+Example 1:Y axis adapts to input data
 ```
 inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
 plotTMB(inputDF,"genome", "adapt")
 ```
 ![Alt text](plots/E1_adapt.png?raw=true "Example 1:Y axis adapts to input data")
 
+
+Example 2:Y axis set for standard cancer TM
 ```
 inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
 plotTMB(inputDF,"genome", "cancer")
 ```
 ![Alt text](plots/E1_cancer.png?raw=true "Example 2:Y axis set for standard cancer TMB")
 
+
+Exmaple 3: custome input value for sequencing scale and Y axis range
 ```
 inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
 plotTMB(inputDF,2800, [0.1,10])
@@ -54,6 +59,7 @@ plotTMB(inputDF,2800, [0.1,10])
 ![Alt text](plots/E1_list.png?raw=true "Exmaple 3: custome input value for sequencing scale and Y axis range")
 
 
+Exmaple 4: full PCAWG dataset
 ```
 inputDF = pd.read_table('exmapleInput1_pcawg.txt')
 plotTMB(inputDF,"genome","adapt")
