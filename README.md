@@ -3,7 +3,7 @@
 ```
 plotTMB(inputDF, scale, Yrange)
 ```
-## Inputs
+## Usage
 
 1. **inputDF**:  *A panda dataframe containing two columns and however many rows of samples.* 
 ```
@@ -43,7 +43,7 @@ plotTMB(inputDF,"genome", "adapt")
 ![Alt text](plots/E1_adapt.png?raw=true "Example 1:Y axis adapts to input data")
 
 
-Example 2:  Y axis set for standard cancer TMB
+Example 2:  Y axis set for standard cancer TMB range
 ```
 inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
 plotTMB(inputDF,"genome", "cancer")
