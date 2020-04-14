@@ -52,3 +52,10 @@ inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
 plotTMB(inputDF,2800, [0.1,10])
 ```
 ![Alt text](plots/E1_list.png?raw=true "Exmaple 3: custome input value for sequencing scale and Y axis range")
+
+
+```
+inputDF = pd.read_table('exmapleInput1_pcawg.txt')
+plotTMB(inputDF,"genome","adapt")
+```
+![Alt text](plots/E1_list.png?raw=true "Exmaple 4: full PCAWG dataset")
