@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import matplotlib.axis as axis
 
-def plotTMB(inputDF, scale, Yrange):
+def plotTMB(inputDF, scale, Yrange = "adapt"):
     if type(scale) == int:
         scale = scale
     elif scale == "genome":
