@@ -40,7 +40,6 @@ def plotTMB(inputDF, scale, Yrange = "adapt", cutoff = 1, output = "TMB_plot.pdf
         return
     #plotting
     fig, ax = plt.subplots(figsize=(2.3 + 0.4 * ngroups, (ymax - ymin) * 0.7 + 3))
-    #plt.axes([2.7/(3+0.4*ngroups), 0.05, (3+0.4*ngroups)/(3+0.4*ngroups) , (ymax-ymin)*0.5])
     plt.xlim(0,2*ngroups)
     plt.ylim(ymin,ymax)
     yticks_loc = range(ymin,ymax+1,1)
@@ -65,5 +64,4 @@ def plotTMB(inputDF, scale, Yrange = "adapt", cutoff = 1, output = "TMB_plot.pdf
     plt.xticks(np.arange(1, 2*ngroups+1, step = 2),names,rotation = -35,ha = 'right');
     fig.subplots_adjust(top = ((ymax - ymin) * 0.7 + 1) / ((ymax - ymin) * 0.7 + 3), left = 2 / (2.3 + 0.4 * ngroups), right=1 - (0.3 / (2.3 + 0.4 * ngroups)),bottom = 1 / ((ymax - ymin) * 0.7 + 3))
     plt.text(1.7 / (2 + 0.4 * ngroups), 0.2 / ((ymax - ymin) * 0.7 + 3), "*Excluding samples with less than %d mutations" % cutoff, transform=plt.gcf().transFigure)
-    #plt.text([1.7 / (2 + 0.4 * ngroups), 2.7 / (2 + 0.4 * ngroups)], 0.7 / ((ymax - ymin) * 0.7 + 3), ["a","b"], transform=plt.gcf().transFigure)
     plt.savefig(output) 
