@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import matplotlib.axis as axis
 
-def plotTMB(inputDF, scale, Yrange = "adapt"):
+def plotTMB(inputDF, scale, Yrange = "adapt", cutoff = 1, output = "TMB_plot.pdf"):
     if type(scale) == int:
         scale = scale
     elif scale == "genome":
@@ -16,12 +16,14 @@ def plotTMB(inputDF, scale, Yrange = "adapt"):
         print("Please input valid scale values: \"exome\", \"genome\" or a numeric value")
         return
     inputDF.columns = ['Types', 'Mut_burden']
-    df=inputDF[inputDF["Mut_burden"]!=0]
+    df=inputDF[inputDF["Mut_burden"] >= cutoff]
     df['log10BURDENpMB'] = df.apply(lambda row: np.log10(row.Mut_burden/scale), axis = 1)
     groups = df.groupby(["Types"])
     means = groups.mean()["log10BURDENpMB"].sort_values(ascending=True)
     names = groups.mean()["log10BURDENpMB"].sort_values(ascending=True).index
     counts = groups.count()["log10BURDENpMB"][names]
+    input_groups = inputDF.groupby(["Types"])
+    input_counts = input_groups.count()["Mut_burden"][names]
     ngroups = groups.ngroups
     if Yrange == "adapt":
         ymax = math.ceil(df['log10BURDENpMB'].max())
@@ -37,7 +39,8 @@ def plotTMB(inputDF, scale, Yrange = "adapt"):
         print("Please input valid scale values: \"adapt\", \"cancer\" or a list of two power of 10 numbers")
         return
     #plotting
-    fig, ax = plt.subplots(figsize=(1+0.4*ngroups,(ymax-ymin)*0.5+3))
+    fig, ax = plt.subplots(figsize=(2.3 + 0.4 * ngroups, (ymax - ymin) * 0.7 + 3))
+    #plt.axes([2.7/(3+0.4*ngroups), 0.05, (3+0.4*ngroups)/(3+0.4*ngroups) , (ymax-ymin)*0.5])
     plt.xlim(0,2*ngroups)
     plt.ylim(ymin,ymax)
     yticks_loc = range(ymin,ymax+1,1)
@@ -60,5 +63,7 @@ def plotTMB(inputDF, scale, Yrange = "adapt"):
     axes2 = ax.twiny()
     plt.tick_params(axis = 'both', which = 'both',length = 0)
     plt.xticks(np.arange(1, 2*ngroups+1, step = 2),names,rotation = -35,ha = 'right');
-    fig.subplots_adjust(top=0.8,left=1/(1+0.4*ngroups), right=1-(0.3/(1+0.4*ngroups)),bottom=0.05)
-    plt.savefig("TMB_plot.pdf") 
+    fig.subplots_adjust(top = ((ymax - ymin) * 0.7 + 1) / ((ymax - ymin) * 0.7 + 3), left = 2 / (2.3 + 0.4 * ngroups), right=1 - (0.3 / (2.3 + 0.4 * ngroups)),bottom = 1 / ((ymax - ymin) * 0.7 + 3))
+    plt.text(1.7 / (2 + 0.4 * ngroups), 0.2 / ((ymax - ymin) * 0.7 + 3), "*Excluding samples with less than %d mutations" % cutoff, transform=plt.gcf().transFigure)
+    #plt.text([1.7 / (2 + 0.4 * ngroups), 2.7 / (2 + 0.4 * ngroups)], 0.7 / ((ymax - ymin) * 0.7 + 3), ["a","b"], transform=plt.gcf().transFigure)
+    plt.savefig(output) 
