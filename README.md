@@ -66,9 +66,17 @@ plotTMB(inputDF,2800, [0.1,10])
 ![Alt text](plots/E1_list.png?raw=true "Exmaple 3: custome input value for sequencing scale and Y axis range")
 
 
-Exmaple 4:  The full PCAWG dataset
+Exmaple 4:  Using cutoff to remove lower end outliers
+```
+inputDF = pd.read_table('exmapleInput3_signature.txt')
+plotTMB(inputDF,"genome",cutoff =2)
+```
+![Alt text](plots/E3_cutoff.png?raw=true "Exmaple 4: Cutoff")
+
+
+Exmaple 5:  The full PCAWG dataset
 ```
 inputDF = pd.read_table('exmapleInput1_pcawg.txt')
 plotTMB(inputDF,"genome","adapt")
 ```
-![Alt text](plots/E2_adapt.png?raw=true "Exmaple 4: full PCAWG dataset")
+![Alt text](plots/E2_adapt.png?raw=true "Exmaple 5: full PCAWG dataset")
