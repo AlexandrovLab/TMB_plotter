@@ -1,7 +1,7 @@
 # TMB_plotting_function
 
 ```
-plotTMB(inputDF, scale, Yrange)
+plotTMB(inputDF, scale, Yrange = "adapt", cutoff = 1, output = "TMB_plot.pdf")
 ```
 ## Usage
 
@@ -33,7 +33,14 @@ The options are:
 "cancer", which will set the range to 0.001 to 1000
 A list of two numbers of powers of 10 indicating the Y-axis range. Example: [0.1,100]
 ```
-
+4. **cutoff**:  *The mimum number of mutations required in a sample to be included in a plot*
+```
+defaulted at 1
+```
+5. **output**:  *outputfile name*
+```
+defaulted is "TMB_plot.pdf"
+```
 ## Examples
 Example 1:  Y axis adapts to input data
 ```
