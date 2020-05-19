@@ -75,8 +75,6 @@ def plotTMB(inputDF, scale, Yrange = "adapt", cutoff = 1, output = "TMB_plot.pdf
     for i in range(0,ngroups,1):
         X_start = i*2+0.1
         X_end = i*2+2-0.1
-        bottom_start = i*2+0.4
-        bottom_end = i*2+2-0.4
         rg = 1.8
         y_values = groups.get_group(names[i])["log10BURDENpMB"].sort_values(ascending = True).values.tolist()
         x_values = list(np.linspace(start = X_start, stop = X_end, num = counts[i]))
