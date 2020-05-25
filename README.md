@@ -35,11 +35,11 @@ A list of two numbers of powers of 10 indicating the Y-axis range. Example: [0.1
 ```
 4. **cutoff**:  *The minimum number of mutations required in a sample to be included in a plot*
 ```
-defaulted at 1
+defaulted at 1, must be larger than or equal to 0
 ```
 5. **output**:  *outputfile name*
 ```
-defaulted is "TMB_plot.pdf"
+defaulted at "TMB_plot.pdf"
 ```
 6. **redbar**:  *redbar location*
 ```
@@ -47,64 +47,79 @@ The redbar value can either be "median" or "mean" which is the value at which th
 ```
 7. **yaxis**:  *Whether to show yaxis label or not*
 ```
-This is a boolian. True or False only. Default is False
+Defaulted at False
 ```
 8. **ascend**:  *Wether to arrange data in ascending order of the height of the redbar*
 ```
-This is a boolian. True or False only. Default is True
+Defaulted at True
 ```
 9. **leftm**:  *left margin*
 ```
-Default at 1
+Defaulted at 1
 ```
 10. **rightm**:  *right margin*
 ```
-Default at 0.3
+Defaulted at 0.3
 ```
 11. **topm**:  *top margin*
 ```
-Default at 1
+Defaulted at 1
 ```
 12. **bottomm**:  *bottom margin*
 ```
-Default at 1
+Defaulted at 1
 ```
 ## Examples
-Example 1:  Y axis adapts to input data
+
+Exmaple 1:  The full PCAWG dataset at default setting
+```
+inputDF = pd.read_table('exmapleInput1_pcawg.txt')
+plotTMB(inputDF,"genome")
+```
+![Alt text](plots/E1_default.png?raw=true "Exmaple 1: full PCAWG dataset")
+
+Exmaple 2:  The full PCAWG dataset with redbar set at mean
+```
+inputDF = pd.read_table('exmapleInput1_pcawg.txt',redbar="mean")
+plotTMB(inputDF,"genome", readbar = "mean")
+```
+![Alt text](plots/E1_mean.png?raw=true "Exmaple 2: full PCAWG dataset")
+
+Exmaple 3:  The full PCAWG dataset with decending order
+```
+inputDF = pd.read_table('exmapleInput1_pcawg.txt',ascend=False)
+plotTMB(inputDF, scale = "genome")
+```
+![Alt text](plots/E1_descend.png?raw=true "Exmaple 3: full PCAWG dataset")
+
+Example 4:  Subtset of PCAWG dataset with Y axis adapts to input data
 ```
 inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
-plotTMB(inputDF,"genome", "adapt")
+plotTMB(inputDF, scale = "genome", Yrange = "adapt")
 ```
-![Alt text](plots/E1_adapt.png?raw=true "Example 1:Y axis adapts to input data")
+![Alt text](plots/E2_adapt.png?raw=true "Example 4:Y axis adapts to input data")
 
 
-Example 2:  Y axis set for standard cancer TMB range
-```
-inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
-plotTMB(inputDF,"genome", "cancer")
-```
-![Alt text](plots/E1_cancer.png?raw=true "Example 2:Y axis set for standard cancer TMB")
-
-
-Exmaple 3:  Using custome input value for sequencing scale and Y axis range
+Example 5:  Y axis set for standard cancer TMB range
 ```
 inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
-plotTMB(inputDF,2800, [0.1,10])
+plotTMB(inputDF, scale = "genome", Yrange = "cancer")
 ```
-![Alt text](plots/E1_list.png?raw=true "Exmaple 3: custome input value for sequencing scale and Y axis range")
+![Alt text](plots/E2_cancer.png?raw=true "Example 5:Y axis set for standard cancer TMB")
 
 
-Exmaple 4:  Using cutoff to remove lower end outliers
+Exmaple 6:  Using custome input value for sequencing scale and Y axis range
+```
+inputDF = pd.read_table('exmapleInput2_pcawg_less.txt')
+plotTMB(inputDF, scale = 2800, Yrange = [0.1,10])
+```
+![Alt text](plots/E2_custome.png?raw=true "Exmaple 6: custome input value for sequencing scale and Y axis range")
+
+
+Exmaple 7:  Using cutoff to remove lower end outliers
 ```
 inputDF = pd.read_table('exmapleInput3_signature.txt')
 plotTMB(inputDF,"genome",cutoff =2)
 ```
-![Alt text](plots/E3_cutoff.png?raw=true "Exmaple 4: Cutoff")
+![Alt text](plots/E3_cutoff.png?raw=true "Exmaple 7: Cutoff")
 
-
-Exmaple 5:  The full PCAWG dataset
-```
-inputDF = pd.read_table('exmapleInput1_pcawg.txt')
-plotTMB(inputDF,"genome","adapt")
-```
-![Alt text](plots/E2_adapt.png?raw=true "Exmaple 5: full PCAWG dataset")
