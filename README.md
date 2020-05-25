@@ -33,13 +33,41 @@ The options are:
 "cancer", which will set the range to 0.001 to 1000
 A list of two numbers of powers of 10 indicating the Y-axis range. Example: [0.1,100]
 ```
-4. **cutoff**:  *The mimum number of mutations required in a sample to be included in a plot*
+4. **cutoff**:  *The minimum number of mutations required in a sample to be included in a plot*
 ```
 defaulted at 1
 ```
 5. **output**:  *outputfile name*
 ```
 defaulted is "TMB_plot.pdf"
+```
+6. **redbar**:  *redbar location*
+```
+The redbar value can either be "median" or "mean" which is the value at which the red bar appears, default is "median"
+```
+7. **yaxis**:  *Whether to show yaxis label or not*
+```
+This is a boolian. True or False only. Default is False
+```
+8. **ascend**:  *Wether to arrange data in ascending order of the height of the redbar*
+```
+This is a boolian. True or False only. Default is True
+```
+9. **leftm**:  *left margin*
+```
+Default at 1
+```
+10. **rightm**:  *right margin*
+```
+Default at 0.3
+```
+11. **topm**:  *top margin*
+```
+Default at 1
+```
+12. **bottomm**:  *bottom margin*
+```
+Default at 1
 ```
 ## Examples
 Example 1:  Y axis adapts to input data
