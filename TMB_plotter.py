@@ -10,7 +10,7 @@ def prepend(list, str):
     list = [str.format(i) for i in list] 
     return(list) 
 
-def plotTMB(inputDF, scale, Yrange = "adapt", cutoff = 0, output = "TMB_plot.pdf", redbar = "median", yaxis = False, ascend = True, leftm = 1, rightm = 0.3, topm = 1, bottomm = 1):
+def plotTMB(inputDF, scale, Yrange = "adapt", cutoff = 0, output = "TMB_plot.png", redbar = "median", yaxis = "Somatic Mutations per Megabase", ascend = True, leftm = 1, rightm = 0.3, topm = 1.4, bottomm = 1):
     if type(scale) == int:
         scale = scale
     elif scale == "genome":
@@ -65,6 +65,9 @@ def plotTMB(inputDF, scale, Yrange = "adapt", cutoff = 0, output = "TMB_plot.pdf
     #plotting
     if ngroups < 7:
         rightm = rightm + 0.4 * (7 - ngroups)
+    if len(names[0])>13:
+        leftm = leftm + 0.09 * (len(names[0]) - 13)
+        topm = topm + 0.080 * (len(names[0]) - 13)
     fig_width = leftm + rightm + 0.4 * ngroups
     fig_length = topm + bottomm + (ymax - ymin) * 0.7
     fig, ax = plt.subplots(figsize=(fig_width, fig_length))
@@ -72,6 +75,7 @@ def plotTMB(inputDF, scale, Yrange = "adapt", cutoff = 0, output = "TMB_plot.pdf
         print("ERROR: cutoff value is less than 0")
         return
     plt.xlim(0,2*ngroups)
+    print(len(names[0]))
     plt.ylim(ymin,ymax)
     yticks_loc = range(ymin,ymax+1,1)
     plt.yticks(yticks_loc,list(map((lambda x: 10**x), list(yticks_loc)))) 
@@ -91,11 +95,10 @@ def plotTMB(inputDF, scale, Yrange = "adapt", cutoff = 0, output = "TMB_plot.pdf
         plt.scatter(x_values,y_values,color = "black",s=1.5)
         plt.hlines(redbars[i], X_start, X_end, colors='red', zorder=2)
         plt.text((leftm + 0.2 + i * 0.4) / fig_width , 0.85 / fig_length , "___",  horizontalalignment='center',transform=plt.gcf().transFigure)
-    if yaxis == True:
-        plt.ylabel("Somatic Mutations per Megabase")
+    plt.ylabel(yaxis)
     axes2 = ax.twiny()
     plt.text((leftm - 0.3) / fig_width, 0.2 / fig_length, "*Showing samples with counts more than %d" % cutoff, transform=plt.gcf().transFigure) 
     plt.tick_params(axis = 'both', which = 'both',length = 0)
     plt.xticks(np.arange(1, 2*ngroups+1, step = 2),names,rotation = -35,ha = 'right');
     fig.subplots_adjust(top = ((ymax - ymin) * 0.7 + bottomm) / fig_length, bottom = bottomm / fig_length, left = leftm / fig_width, right=1 - rightm / fig_width)
-    plt.savefig(output) 
+    plt.savefig(output)
