@@ -97,7 +97,7 @@ def plotTMB(inputDF, scale, Yrange = "adapt", cutoff = 0, output = "TMB_plot.png
         plt.text((leftm + 0.2 + i * 0.4) / fig_width , 0.85 / fig_length , "___",  horizontalalignment='center',transform=plt.gcf().transFigure)
     plt.ylabel(yaxis)
     axes2 = ax.twiny()
-    plt.text((leftm - 0.3) / fig_width, 0.2 / fig_length, "*Showing samples with counts more than %d" % cutoff, transform=plt.gcf().transFigure) 
+    plt.text((leftm - 0.3) / fig_width, 0.2 / fig_length, "*Showing samples with more than %d mutations" % cutoff, transform=plt.gcf().transFigure) 
     plt.tick_params(axis = 'both', which = 'both',length = 0)
     plt.xticks(np.arange(1, 2*ngroups+1, step = 2),names,rotation = -35,ha = 'right');
     fig.subplots_adjust(top = ((ymax - ymin) * 0.7 + bottomm) / fig_length, bottom = bottomm / fig_length, left = leftm / fig_width, right=1 - rightm / fig_width)
