@@ -27,6 +27,7 @@ Column 2 is the number of mutations in that sample.
 The options are: 
 "exome", which assumes sequencing size of 55 Mb
 "genome", which assumes sequencing size of 2800 Mb
+"custom", which requires the input to have a 3rd column in the entry that specifies the number of Mbs for each sample to be divded by.
 An integer indicating the scale of the sequencing
 ```
 3. **Yrange**:  *The range of Yaxis.*
@@ -71,6 +72,11 @@ Defaulted at 1
 12. **bottomm**:  *bottom margin*
 ```
 Defaulted at 1
+```
+13. **filterline**:  *bottom margin*
+```
+Defaulted at True
+Will show the number of samples plotted over the number of samples included. When set to False, the divider and the total nubmer of samples plotted will be removed. It will also be automatically removed if no sample was filtered out
 ```
 ## Examples
 
